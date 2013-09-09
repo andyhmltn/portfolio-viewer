@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Portfolio Viewer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body ng-app="PortfolioViewer">
+  <!-- <h1>My Portfolio</h1> -->
+
+  <div id="container" ng-controller="PortfolioController">
+    <h1>{{person.name}}</h1>
+
+    <ul>
+      <li ng-repeat="item in projects">
+        <div class="project-image">
+          <img src="{{item.image}}" alt="">
+        </div>
+
+        <div class="project-description">
+          <h3>{{item.title}}</h3>
+          <p>{{item.description}}</p>
+
+          <ul>
+            <li ng-repeat="tag in item.tags">
+              {{tag}}
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <script src="js/vendor/angular.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/controllers/portfolio_controller.js"></script>
+</body>
+</html>
