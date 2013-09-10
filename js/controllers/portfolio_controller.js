@@ -3,7 +3,7 @@ app.controller("PortfolioController", function($scope, $http, $filter) {
   // on the portfolio page
   $scope.person = {
     name: 'Date Picker',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, nam, excepturi sequi maiores similique labore placeat necessitatibus repellat soluta voluptatem temporibus beatae ex assumenda eligendi quis possimus recusandae molestiae rem!'
+    description: 'Lorem ipsum dolor sit amet'
   }
 
 
