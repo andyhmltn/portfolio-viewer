@@ -22,7 +22,7 @@
     <div class="form-group search">
       <label class="col-lg-1 control-label">Search</label>
       <div class="col-lg-11">
-        <input type="email" class="form-control" ng-model="query" placeholder="Search Projects">
+        <input type="text" class="form-control" ng-model="query" ng-change="search()" placeholder="Search Projects">
       </div>
     </div>
   </form>
@@ -65,6 +65,7 @@
 
   <script src="js/vendor/angular.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/tools.js"></script>
   <script src="js/controllers/portfolio_controller.js"></script>
 </body>
 </html>
