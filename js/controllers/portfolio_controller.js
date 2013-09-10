@@ -113,5 +113,15 @@ app.controller("PortfolioController", function($scope, $http, $filter) {
     $scope.current_page = this.n
   }
 
+  // The faux-delete method
+  $scope.delete = function(id) {
+    // Heres where you would make an API request
+
+    for(var index in $scope.projects)
+      if($scope.projects[index].id == id)
+        $scope.projects.splice(index, 1)
+
+    $scope.search(true)
+  }
 
 })
