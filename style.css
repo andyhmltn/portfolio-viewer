@@ -26,3 +26,21 @@ body {}
 }
 
 .project-description h3 { margin: 0; }
+
+.pagination {
+  list-style-type: none;
+}
+  .disabled > a {
+    color: gray;
+    text-decoration: none;
+    font-style: italic;
+  }
+  .active:hover > a, .disabled:hover > a {
+    cursor: default;
+  }
+  
+  .active > a {
+    color: red;
+    text-decoration: none;
+    font-style: italic;
+  }

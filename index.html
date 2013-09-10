@@ -14,7 +14,7 @@
     Search: <input type="text" ng-model="query">
 
     <ul class="projects">
-      <li data-ng-repeat="item in projects | filter:query" class="project">
+      <li data-ng-repeat="item in paged_items[current_page] | filter:query" class="project">
         <div class="project-image">
           <img data-ng-src="{{item.image}}" alt="">
         </div>
@@ -29,6 +29,23 @@
             </li>
           </ul>
         </div>
+      </li>
+    </ul>
+
+    <ul class="pagination">
+      <li ng-class="{disabled: current_page == 0}">
+        <a href ng-click="previous_page()">« Prev</a>
+      </li>
+
+      <li ng-repeat="n in range(paged_items.length)" 
+          ng-class="{active: n == current_page}"
+          ng-click="set_page()">
+          <a href ng-bind="n + 1">1</a>
+      </li>
+      <li ng-class="{disabled: current_page == paged_items.length - 1}">
+        <a href ng-click="next_page()">
+          Next »
+        </a>
       </li>
     </ul>
   </div>
