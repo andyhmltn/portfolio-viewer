@@ -8,9 +8,10 @@ app.controller("PortfolioController", function($scope, $http, $filter) {
   $scope.filtered_projects = []
 
   // Pagination settings
-  $scope.per_page     = 3
-  $scope.current_page = 0
-  $scope.paged_items  = []
+  $scope.per_page      = 3
+  $scope.current_page  = 0
+  $scope.found_results = 0
+  $scope.paged_items   = []
 
   $http({method: 'GET', url: 'api/projects.json'}).success(function(data) {
     $scope.projects = data
@@ -31,10 +32,14 @@ app.controller("PortfolioController", function($scope, $http, $filter) {
   }
 
   $scope.search = function () {
+      $scope.found_results = 0
+      
       $scope.filtered_projects = $filter('filter')($scope.projects, function (item) {
           for(var attr in item) {
-              if (search_match(item[attr], $scope.query))
-                  return true
+              if (search_match(item[attr], $scope.query)) {
+                $scope.found_results += 1
+                return true
+              }
           }
           return false
       })

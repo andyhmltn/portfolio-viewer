@@ -18,14 +18,15 @@
     <h1>My Portfolio</h1>
     <p>{{person.description}}</p>
 
-  <form class="form-horizontal" role="form">
-    <div class="form-group search">
-      <label class="col-lg-1 control-label">Search</label>
-      <div class="col-lg-11">
-        <input type="text" class="form-control" ng-model="query" ng-change="search()" placeholder="Search Projects">
+    <form class="form-horizontal" role="form">
+      <div class="form-group search">
+        <label class="col-lg-1 control-label">Search</label>
+        <div class="col-lg-9">
+          <input type="text" class="form-control" ng-model="query" ng-change="search()" placeholder="Search Projects">
+        </div>
+          <div class="col-lg-2">Total Results: {{found_results}}</div>
       </div>
-    </div>
-  </form>
+    </form>
     <ul class="projects container">
       <li data-ng-repeat="item in paged_items[current_page] | filter:query" class="project row">
         <div class="project-image col-lg-2">
