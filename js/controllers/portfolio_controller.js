@@ -25,7 +25,7 @@ app.controller("PortfolioController", function($scope, $http, $filter) {
   $scope.reverse       = false
 
   // Fetch the projects from api/projects.json
-  $http({method: 'GET', url: 'api/projects.json'}).success(function(data) {
+  $http({method: 'GET', url: 'http://localhost:3000/projects'}).success(function(data) {
     $scope.projects = data
 
     // If there actually is any projects
@@ -113,15 +113,36 @@ app.controller("PortfolioController", function($scope, $http, $filter) {
     $scope.current_page = this.n
   }
 
-  // The faux-delete method
+  // The delete method
+  // called when the delete
+  // button is clicked
+
   $scope.delete = function(id) {
+    // Make an HTTP DELETE request to the API
+    $http({method:'DELETE', url: 'http://localhost:3000/projects/'+id}).success(function(data) {
+      // If it's a success
+      if(data.msg == 'success') {
+        // Find the deleted record and remove
+        // it from $scope.projects
+        for(var index in $scope.projects) {
+          if($scope.projects[index]._id == id) {
+            $scope.projects.splice(index, 1)
+
+            // If there are no more
+            // records left on this page, go
+            // back one
+            if($scope.paged_items[$scope.current_page].length === 1)
+              $scope.current_page -= 1
+          }
+        }
+      }
+
+      // TODO: Handle error
+  
+      $scope.search(true)
+    })
     // Heres where you would make an API request
 
-    for(var index in $scope.projects)
-      if($scope.projects[index].id == id)
-        $scope.projects.splice(index, 1)
-
-    $scope.search(true)
   }
 
 })
