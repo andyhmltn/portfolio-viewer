@@ -32,20 +32,20 @@ app.controller("PortfolioController", function($scope, $http, $filter) {
   }
 
   $scope.search = function () {
-      $scope.found_results = 0
-      
-      $scope.filtered_projects = $filter('filter')($scope.projects, function (item) {
-          for(var attr in item) {
-              if (search_match(item[attr], $scope.query)) {
-                $scope.found_results += 1
-                return true
-              }
-          }
-          return false
-      })
+    $scope.found_results = 0
+    
+    $scope.filtered_projects = $filter('filter')($scope.projects, function (item) {
+        for(var attr in item) {
+            if (search_match(item[attr], $scope.query)) {
+              $scope.found_results += 1
+              return true
+            }
+        }
+        return false
+    })
 
-      $scope.current_page = 0
-      $scope.group_to_pages()
+    $scope.current_page = 0
+    $scope.group_to_pages()
   }
 
   $scope.range = range;
