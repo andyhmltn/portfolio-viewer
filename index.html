@@ -6,74 +6,23 @@
   <link rel="stylesheet" href="css/vendor/bootstrap.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body data-ng-app="PortfolioViewer" data-ng-controller="PortfolioController" class="ng-cloak">
+<body data-ng-app="PortfolioViewer">
   <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
-  <div class="container">
-    <div class="navbar-header">
-      <a href="../" class="navbar-brand">{{person.name}} - Portfolio</a>
-    </div>
-  </div>
-</header>
-  <div id="main_container" class="container">
-    <h1>My Portfolio</h1>
-    <p>{{person.description}}</p>
-
-    <form class="form-horizontal" role="form">
-      <div class="form-group search">
-        <label class="col-lg-1 control-label">Search</label>
-        <div class="col-lg-4">
-          <input type="text" class="form-control" data-ng-model="query" data-ng-change="search()" placeholder="Search Projects">
-        </div>
-        <label class="col-lg-1 control-label">Order By</label>
-        <div class="col-lg-4">
-          <select class="form-control" data-ng-model="sorting_order" 
-                                       data-ng-options="uppercase(value) for value in fields" 
-                                       data-ng-change="search()">
-            
-          </select>
-        </div>
-        <div class="col-lg-2">Total Results: {{found_results}}</div>
+    <div class="container">
+      <div class="navbar-header">
+        <a href="../" class="navbar-brand">AngularJS Test</a>
       </div>
-    </form>
-    <ul class="projects container">
-      <li class="none-found" data-ng-show="found_results == 0">No results were found with the provided search term. Please try again.</li>
-      <li data-ng-repeat="item in paged_items[current_page] | filter:query" class="project row">
-        <div class="project-image col-lg-2">
-          <img data-ng-src="{{item.image}}" alt="">
-        </div>
+    </div>
+  </header>
 
-        <div class="project-description col-lg-10">
-          <h3>{{item.title}}</h3>
-          <p>{{item.description}}</p>
-
-          <div class="tags">
-            <span class="label label-success" data-ng-repeat="tag in item.tags">{{tag}}</span>
-          </div>
-        </div>
-      </li>
-    </ul>
-
-    <ul class="pagination pagination-centered">
-      <li data-ng-class="{disabled: current_page == 0}">
-        <a href data-ng-click="previous_page()">« Prev</a>
-      </li>
-
-      <li data-ng-repeat="n in range(paged_items.length)" 
-          data-ng-class="{active: n == current_page}"
-          data-ng-click="set_page()">
-          <a href data-ng-bind="n + 1">1</a>
-      </li>
-      <li data-ng-class="{disabled: current_page == paged_items.length - 1}">
-        <a href data-ng-click="next_page()">
-          Next »
-        </a>
-      </li>
-    </ul>
+  <div id="main_container" class="container" ng-view>
+    
   </div>
 
   <script src="js/vendor/angular.js"></script>
   <script src="js/app.js"></script>
   <script src="js/tools.js"></script>
   <script src="js/controllers/portfolio_controller.js"></script>
+  <script src="js/controllers/project_controller.js"></script>
 </body>
 </html>

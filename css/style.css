@@ -29,10 +29,10 @@
 
 
   .project-description h3 { margin: 0; }
+  .tags { margin-bottom: 12px; }
+  .tags > span { margin-right: 10px; }
 
-  .project .tags > span { margin-right: 10px; }
-
-  .projects > .none-found {
+  .none-found {
     font-style: italic;
     margin-top: 20px;
     text-align: center;
@@ -57,3 +57,13 @@
     text-decoration: none;
     font-style: italic;
   }
+
+.view-project { 
+  margin-top: 20px;
+  border: 1px solid #EFEFEF;
+  padding: 20px;
+}
+
+.view-project .go-back {
+  
+}

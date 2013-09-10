@@ -1,0 +1,57 @@
+  <h1>My Portfolio</h1>
+  <p>{{person.description}}</p>
+
+  <form class="form-horizontal" role="form">
+    <div class="form-group search">
+      <label class="col-lg-1 control-label">Search</label>
+      <div class="col-lg-4">
+        <input type="text" class="form-control" data-ng-model="query" data-ng-change="search()" placeholder="Search Projects">
+      </div>
+      <label class="col-lg-1 control-label">Order By</label>
+      <div class="col-lg-4">
+        <select class="form-control" data-ng-model="sorting_order" 
+                                     data-ng-options="uppercase(value) for value in fields" 
+                                     data-ng-change="search()">
+          
+        </select>
+      </div>
+      <div class="col-lg-2">Total Results: {{found_results}}</div>
+    </div>
+  </form>
+  <ul class="projects container">
+    <li class="none-found" data-ng-show="found_results == 0">No results were found with the provided search term. Please try again.</li>
+    <li data-ng-repeat="item in paged_items[current_page] | filter:query" class="project row">
+      <div class="project-image col-lg-2">
+        <img data-ng-src="{{item.image}}" alt="">
+      </div>
+
+      <div class="project-description col-lg-10">
+        <h3>{{item.title}}</h3>
+        <p>{{item.description}}</p>
+
+        <div class="tags">
+          <span class="label label-success" data-ng-repeat="tag in item.tags">{{tag}}</span>
+        </div>
+
+        <a href="#/view/{{item.id}}" class="btn btn-primary">Open Item</a>
+      </div>
+
+    </li>
+  </ul>
+
+  <ul class="pagination pagination-centered">
+    <li data-ng-class="{disabled: current_page == 0}">
+      <a href data-ng-click="previous_page()">« Prev</a>
+    </li>
+
+    <li data-ng-repeat="n in range(paged_items.length)" 
+        data-ng-class="{active: n == current_page}"
+        data-ng-click="set_page()">
+        <a href data-ng-bind="n + 1">1</a>
+    </li>
+    <li data-ng-class="{disabled: current_page == paged_items.length - 1}">
+      <a href data-ng-click="next_page()">
+        Next »
+      </a>
+    </li>
+  </ul>

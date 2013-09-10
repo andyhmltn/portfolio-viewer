@@ -1,0 +1,24 @@
+<div data-ng-show="found" class="view-project">
+  <div class="row">
+    <div class="col-lg-2">
+      <img data-ng-src="{{project.image}}" width="100%">
+    </div>
+
+    <div class="col-lg-8">
+      <h1>{{project.title}}</h1>
+      <p>{{project.description}}</p>
+      <div class="tags">
+        <span class="label label-success" data-ng-repeat="tag in project.tags">{{tag}}</span>
+      </div>
+    </div>
+
+    <div class="col-lg-2">
+    <a href="#/" class="btn btn-primary">Go Back To Index</a>
+      
+    </div>
+  </div>
+</div>
+
+<div data-ng-hide="found">
+  <div class="none-found">This record cannot be found</div>
+</div>
