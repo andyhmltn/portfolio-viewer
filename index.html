@@ -5,16 +5,16 @@
   <title>Portfolio Viewer</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body ng-app="PortfolioViewer">
+<body data-ng-app="PortfolioViewer">
   <!-- <h1>My Portfolio</h1> -->
 
-  <div id="container" ng-controller="PortfolioController">
+  <div id="container" data-ng-controller="PortfolioController">
     <h1>{{person.name}}</h1>
 
-    <ul>
-      <li ng-repeat="item in projects">
+    <ul class="projects">
+      <li data-ng-repeat="item in projects" class="project">
         <div class="project-image">
-          <img src="{{item.image}}" alt="">
+          <img data-ng-src="{{item.image}}" alt="">
         </div>
 
         <div class="project-description">
@@ -22,7 +22,7 @@
           <p>{{item.description}}</p>
 
           <ul>
-            <li ng-repeat="tag in item.tags">
+            <li data-ng-repeat="tag in item.tags">
               {{tag}}
             </li>
           </ul>
