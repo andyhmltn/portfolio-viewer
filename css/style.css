@@ -1,3 +1,4 @@
+.ng-cloak { display: none; }
 .navbar-inverse {
   background: #3498db;
   border-color: #3498db; }
