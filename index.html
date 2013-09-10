@@ -36,11 +36,9 @@
           <h3>{{item.title}}</h3>
           <p>{{item.description}}</p>
 
-          <ul>
-            <li data-ng-repeat="tag in item.tags">
-              {{tag}}
-            </li>
-          </ul>
+          <div class="tags">
+            <span class="label label-success" data-ng-repeat="tag in item.tags">{{tag}}</span>
+          </div>
         </div>
       </li>
     </ul>
