@@ -3,60 +3,70 @@
     "id":0,
     "title":"Example",
     "description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, omnis, unde voluptatibus tenetur maiores illum quasi at odio voluptas beatae illo repellendus ex vitae. Delectus autem soluta maiores nobis culpa.",
+    "image":"http://builtwith.angularjs.org/projects/yt-ps3/thumb.png",
     "tags":["example","project","angularjs"]
   },
   {
     "id":0,
     "title":"My second project",
     "description":"Searching with this is AWESOME",
+    "image":"http://builtwith.angularjs.org/projects/yt-ps3/thumb.png",
     "tags":["random","tags","for","searching"]
   },
   {
     "id":0,
     "title":"Example2",
     "description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, omnis, unde voluptatibus tenetur maiores illum quasi at odio voluptas beatae illo repellendus ex vitae. Delectus autem soluta maiores nobis culpa.",
+    "image":"http://builtwith.angularjs.org/projects/yt-ps3/thumb.png",
     "tags":["example","project","angularjs"]
   },
   {
     "id":0,
     "title":"My second project2",
     "description":"Searching with this is AWESOME",
+    "image":"http://builtwith.angularjs.org/projects/yt-ps3/thumb.png",
     "tags":["random","tags","for","searching"]
   },
   {
     "id":0,
     "title":"Example3",
     "description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, omnis, unde voluptatibus tenetur maiores illum quasi at odio voluptas beatae illo repellendus ex vitae. Delectus autem soluta maiores nobis culpa.",
+    "image":"http://builtwith.angularjs.org/projects/yt-ps3/thumb.png",
     "tags":["example","project","angularjs"]
   },
   {
     "id":0,
     "title":"My second project3",
     "description":"Searching with this is AWESOME",
+    "image":"http://builtwith.angularjs.org/projects/yt-ps3/thumb.png",
     "tags":["random","tags","for","searching"]
   },
   {
     "id":0,
     "title":"Example3",
     "description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, omnis, unde voluptatibus tenetur maiores illum quasi at odio voluptas beatae illo repellendus ex vitae. Delectus autem soluta maiores nobis culpa.",
+    "image":"http://builtwith.angularjs.org/projects/yt-ps3/thumb.png",
     "tags":["example","project","angularjs"]
   },
   {
     "id":0,
     "title":"My second project3",
     "description":"Searching with this is AWESOME",
+    "image":"http://builtwith.angularjs.org/projects/yt-ps3/thumb.png",
     "tags":["random","tags","for","searching"]
   },
   {
     "id":0,
     "title":"Example3",
     "description":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, omnis, unde voluptatibus tenetur maiores illum quasi at odio voluptas beatae illo repellendus ex vitae. Delectus autem soluta maiores nobis culpa.",
+    "image":"http://builtwith.angularjs.org/projects/yt-ps3/thumb.png",
     "tags":["example","project","angularjs"]
   },
   {
     "id":0,
     "title":"My second project3",
     "description":"Searching with this is AWESOME",
+    "image":"http://builtwith.angularjs.org/projects/yt-ps3/thumb.png",
     "tags":["random","tags","for","searching"]
   }
 ]
