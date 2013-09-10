@@ -22,7 +22,7 @@
       <div class="form-group search">
         <label class="col-lg-1 control-label">Search</label>
         <div class="col-lg-9">
-          <input type="text" class="form-control" ng-model="query" ng-change="search()" placeholder="Search Projects">
+          <input type="text" class="form-control" data-ng-model="query" data-ng-change="search()" placeholder="Search Projects">
         </div>
           <div class="col-lg-2">Total Results: {{found_results}}</div>
       </div>
@@ -46,17 +46,17 @@
     </ul>
 
     <ul class="pagination pagination-centered">
-      <li ng-class="{disabled: current_page == 0}">
-        <a href ng-click="previous_page()">« Prev</a>
+      <li data-ng-class="{disabled: current_page == 0}">
+        <a href data-ng-click="previous_page()">« Prev</a>
       </li>
 
-      <li ng-repeat="n in range(paged_items.length)" 
-          ng-class="{active: n == current_page}"
-          ng-click="set_page()">
-          <a href ng-bind="n + 1">1</a>
+      <li data-ng-repeat="n in range(paged_items.length)" 
+          data-ng-class="{active: n == current_page}"
+          data-ng-click="set_page()">
+          <a href data-ng-bind="n + 1">1</a>
       </li>
-      <li ng-class="{disabled: current_page == paged_items.length - 1}">
-        <a href ng-click="next_page()">
+      <li data-ng-class="{disabled: current_page == paged_items.length - 1}">
+        <a href data-ng-click="next_page()">
           Next »
         </a>
       </li>
