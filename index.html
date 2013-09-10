@@ -11,8 +11,10 @@
   <div id="container" data-ng-controller="PortfolioController">
     <h1>{{person.name}}</h1>
 
+    Search: <input type="text" ng-model="query">
+
     <ul class="projects">
-      <li data-ng-repeat="item in projects" class="project">
+      <li data-ng-repeat="item in projects | filter:query" class="project">
         <div class="project-image">
           <img data-ng-src="{{item.image}}" alt="">
         </div>
