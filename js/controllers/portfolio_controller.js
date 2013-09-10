@@ -61,7 +61,9 @@ app.controller("PortfolioController", function($scope, $http, $filter) {
   // Apply filters, sort the order
   // of the projects and then
   // run the pagination function
-  $scope.search = function () {
+  $scope.search = function (preserve_current_page) {
+    preserve_current_page = (typeof preserve_current_page == 'undefined') ? false : preserve_current_page
+
     $scope.found_results = 0
     
     $scope.filtered_projects = $filter('filter')($scope.projects, function (item) {
@@ -81,7 +83,9 @@ app.controller("PortfolioController", function($scope, $http, $filter) {
     // Reset the current page
     // and sort the results of
     // the filter into pages
-    $scope.current_page = 0
+    if(! preserve_current_page)
+      $scope.current_page = 0
+
     $scope.group_to_pages()
   }
 
