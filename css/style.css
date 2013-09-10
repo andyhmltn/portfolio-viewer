@@ -31,6 +31,14 @@
 
   .project .tags > span { margin-right: 10px; }
 
+  .projects > .none-found {
+    font-style: italic;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: #F00;
+  }
+
 .pagination {
   list-style-type: none;
 }

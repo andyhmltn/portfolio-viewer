@@ -28,6 +28,7 @@
       </div>
     </form>
     <ul class="projects container">
+      <li class="none-found" data-ng-show="found_results == 0">No results were found with the provided search term. Please try again.</li>
       <li data-ng-repeat="item in paged_items[current_page] | filter:query" class="project row">
         <div class="project-image col-lg-2">
           <img data-ng-src="{{item.image}}" alt="">
