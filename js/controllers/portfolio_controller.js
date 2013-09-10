@@ -1,5 +1,8 @@
 app.controller("PortfolioController", function($scope, $http) {
-  $scope.person = {name: 'Date Picker'}
+  $scope.person = {
+    name: 'Date Picker',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui, nam, excepturi sequi maiores similique labore placeat necessitatibus repellat soluta voluptatem temporibus beatae ex assumenda eligendi quis possimus recusandae molestiae rem!'
+  }
   $scope.projects = []
 
   // Pagination settings
