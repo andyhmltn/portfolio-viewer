@@ -12,12 +12,27 @@ app.controller("PortfolioController", function($scope, $http, $filter) {
   $scope.current_page  = 0
   $scope.found_results = 0
   $scope.paged_items   = []
+  $scope.fields        = []
+
+  // Sort by settings
+  $scope.sorting_order = 'title' // Default to title
+  $scope.reverse       = false
 
   $http({method: 'GET', url: 'api/projects.json'}).success(function(data) {
     $scope.projects = data
+
+    if($scope.projects.length >= 2)
+      for(var field in $scope.projects[1])
+        $scope.fields.push(field)
+
     $scope.search()
   })
 
+  // Sort By Controls
+  $scope.sort_by = function(new_sorting_order) {
+    $scope.sorting_order = new_sorting_order;
+  }
+  
   // Search Controls
   $scope.group_to_pages = function() {
 
@@ -44,6 +59,10 @@ app.controller("PortfolioController", function($scope, $http, $filter) {
         return false
     })
 
+    if ($scope.sorting_order !== '') {
+      $scope.filtered_projects = $filter('orderBy')($scope.filtered_projects, $scope.sorting_order, $scope.reverse);
+    }
+
     $scope.current_page = 0
     $scope.group_to_pages()
   }
@@ -64,5 +83,7 @@ app.controller("PortfolioController", function($scope, $http, $filter) {
   $scope.set_page = function() {
     $scope.current_page = this.n
   }
+
+  $scope.uppercase = uppercase;
 
 })

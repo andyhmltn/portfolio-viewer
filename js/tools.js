@@ -28,3 +28,7 @@ var range = function (start, end) {
     }
     return ret
 }
+
+var uppercase = function(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}

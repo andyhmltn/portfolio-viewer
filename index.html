@@ -21,10 +21,18 @@
     <form class="form-horizontal" role="form">
       <div class="form-group search">
         <label class="col-lg-1 control-label">Search</label>
-        <div class="col-lg-9">
+        <div class="col-lg-4">
           <input type="text" class="form-control" data-ng-model="query" data-ng-change="search()" placeholder="Search Projects">
         </div>
-          <div class="col-lg-2">Total Results: {{found_results}}</div>
+        <label class="col-lg-1 control-label">Order By</label>
+        <div class="col-lg-4">
+          <select class="form-control" data-ng-model="sorting_order" 
+                                       data-ng-options="uppercase(value) for value in fields" 
+                                       data-ng-change="search()">
+            
+          </select>
+        </div>
+        <div class="col-lg-2">Total Results: {{found_results}}</div>
       </div>
     </form>
     <ul class="projects container">
