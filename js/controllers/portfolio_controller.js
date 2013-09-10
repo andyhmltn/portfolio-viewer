@@ -14,7 +14,9 @@ app.controller("PortfolioController", function($scope, $http, $filter) {
   // Pagination settings
   $scope.per_page      = 3
   $scope.current_page  = 0
-  $scope.found_results = 0
+  $scope.found_results = null // Why not 0? Well the 'no results' text 
+                              // shouldn't be seen until the content
+                              // has finished loading from the API
   $scope.paged_items   = []
   $scope.fields        = []
 
