@@ -3,7 +3,7 @@ body {}
   list-style-type: none;
 }
 
-.project {
+.project:after {
      visibility: hidden;
      display: block;
      font-size: 0;
