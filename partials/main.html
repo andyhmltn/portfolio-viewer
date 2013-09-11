@@ -41,7 +41,7 @@
     </li>
   </ul>
 
-  <ul class="pagination pagination-centered">
+  <ul class="pagination pagination-centered" ng-show="paged_items.length != 1">
     <li data-ng-class="{disabled: current_page == 0}">
       <a href data-ng-click="previous_page()">« Prev</a>
     </li>
