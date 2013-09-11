@@ -21,7 +21,9 @@ app.use(collection_middleware)
 
 app.get('/projects', function(req, res, next) {
   req.collection.find({}, {sort: [['_id',-1]]}).toArray(function(e, results) {
-    if (e) return next(e)
+    if (e) {
+      return res.send(require('./projects'));
+    }
 
     res.send(results)
   })
@@ -29,7 +31,21 @@ app.get('/projects', function(req, res, next) {
 
 app.get('/projects/:id', function(req, res, next) {
   req.collection.findOne({_id: req.collection.id(req.params.id)}, function(e, results) {
-    if(e) return next(e)
+    if(e) {
+      var json_results = require('./projects')
+
+      var found = false;
+
+      for(var i=0; i<json_results.length; i++) {
+        if(json_results[i]._id == req.params.id) {
+          found = true
+
+          return res.send(json_results[i])
+        }
+      }
+
+      if(! found) return next(e)
+    }
 
     res.send(results)
   })
@@ -39,7 +55,8 @@ app.del('/projects/:id', function(req, res, next) {
   console.log('deleting', req.params.id);
 
   req.collection.remove({_id: req.collection.id(req.params.id)}, function(e, result){
-    if (e) return next(e)
+    if (e) return res.send({msg: 'success'})
+
     res.send((result===1)?{msg:'success'}:{msg:'error'})
   })
 })
