@@ -19,7 +19,7 @@ var collection_middleware = function(req, res, next) {
 
 app.use(collection_middleware)
 
-app.get('/projects', function(req, res) {
+app.get('/projects', function(req, res, next) {
   req.collection.find({}, {sort: [['_id',-1]]}).toArray(function(e, results) {
     if (e) return next(e)
 
@@ -27,7 +27,7 @@ app.get('/projects', function(req, res) {
   })
 })
 
-app.get('/projects/:id', function(req, res) {
+app.get('/projects/:id', function(req, res, next) {
   req.collection.findOne({_id: req.collection.id(req.params.id)}, function(e, results) {
     if(e) return next(e)
 
@@ -35,7 +35,7 @@ app.get('/projects/:id', function(req, res) {
   })
 })
 
-app.del('/projects/:id', function(req, res) {
+app.del('/projects/:id', function(req, res, next) {
   console.log('deleting', req.params.id);
 
   req.collection.remove({_id: req.collection.id(req.params.id)}, function(e, result){
