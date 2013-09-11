@@ -119,6 +119,8 @@ app.controller("PortfolioController", function($scope, $http, $filter, flash) {
   // called when the delete
   // button is clicked
 
+  $scope.error = function() { flash([{ level: 'alert-danger', text: 'There was an error processing your request. Please try again soon'}]) }
+
   $scope.delete = function(id) {
     // Make an HTTP DELETE request to the API
     $http({method:'DELETE', url: 'http://localhost:3000/projects/'+id}).success(function(data) {
@@ -139,12 +141,11 @@ app.controller("PortfolioController", function($scope, $http, $filter, flash) {
         }
 
         flash([{ level: 'alert-success', text: 'This project has been deleted' }])
-      } else {
-        flash([{ level: 'alert-danger', text: 'There was an error processing your request. Please try again soon'}])
-      }
+      } else
+        $scope.error()
   
       $scope.search(true)
-    })
+    }).error($scope.error)
     // Heres where you would make an API request
 
   }
