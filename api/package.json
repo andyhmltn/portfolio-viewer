@@ -1,0 +1,10 @@
+{
+  "name":"portfolio-viewer-api",
+  "version":"0.0.1",
+  "author":"Andy Hamilton <andy@fine.io>",
+  "description":"The API for the portfolio viewer application",
+  "dependencies": {
+    "mongoskin":"0.6.0",
+    "express":"3.4.0"
+  }
+}
