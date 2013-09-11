@@ -1,6 +1,6 @@
 "use strict"
 
-app.controller("PortfolioController", function($scope, $http, $filter) {
+app.controller("PortfolioController", function($scope, $http, $filter, flash) {
   // Your personal information displayed
   // on the portfolio page
   $scope.person = {
@@ -137,9 +137,11 @@ app.controller("PortfolioController", function($scope, $http, $filter) {
               $scope.current_page -= 1
           }
         }
-      }
 
-      // TODO: Handle error
+        flash([{ level: 'alert-success', text: 'This project has been deleted' }])
+      } else {
+        flash([{ level: 'alert-danger', text: 'There was an error processing your request. Please try again soon'}])
+      }
   
       $scope.search(true)
     })
