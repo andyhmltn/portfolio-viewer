@@ -1,3 +1,5 @@
+"use strict"
+
 var search_match = function (haystack, needle) {
     if (!needle) return true
 

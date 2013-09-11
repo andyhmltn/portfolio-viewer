@@ -1,3 +1,5 @@
+"use strict"
+
 app.controller("ProjectController", function($scope, $routeParams, $http) {
   $scope.id      = $routeParams.id
   $scope.project = {}

@@ -1,3 +1,5 @@
+"use strict"
+
 app.controller("PortfolioController", function($scope, $http, $filter) {
   // Your personal information displayed
   // on the portfolio page
