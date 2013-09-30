@@ -6,6 +6,13 @@ app.factory('projectsService', function($http) {
                   .then(function(result) {
                     return result.data
                   })
+    },
+
+    getProject: function(id) {
+      return $http.get('http://localhost:3000/projects/'+id)
+                  .then(function(result) {
+                    return result.data
+                  })
     }
   }
 
