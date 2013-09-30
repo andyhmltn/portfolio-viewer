@@ -125,7 +125,8 @@ app.controller("PortfolioController", function($scope, $http, $filter, flash, pr
 
   $scope.delete = function(id) {
     // Make an HTTP DELETE request to the API
-    $http({method:'DELETE', url: 'http://localhost:3000/projects/'+id}).success(function(data) {
+
+    projectsService.deleteProject(id).then(function(data) {
       // If it's a success
       if(data.msg == 'success') {
         // Find the deleted record and remove
@@ -147,7 +148,7 @@ app.controller("PortfolioController", function($scope, $http, $filter, flash, pr
         $scope.error()
   
       $scope.search(true)
-    }).error($scope.error)
+    })
     // Heres where you would make an API request
 
   }
