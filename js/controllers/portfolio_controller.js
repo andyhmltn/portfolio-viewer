@@ -1,6 +1,6 @@
 "use strict"
 
-app.controller("PortfolioController", function($scope, $http, $filter, flash) {
+app.controller("PortfolioController", function($scope, $http, $filter, flash, projectsService) {
   // Your personal information displayed
   // on the portfolio page
   $scope.person = {
@@ -27,7 +27,8 @@ app.controller("PortfolioController", function($scope, $http, $filter, flash) {
   $scope.reverse       = false
 
   // Fetch the projects from api/projects.json
-  $http({method: 'GET', url: 'http://localhost:3000/projects'}).success(function(data) {
+
+  projectsService.getProjects().then(function(data) {
     $scope.projects = data
 
     // If there actually is any projects
@@ -42,6 +43,7 @@ app.controller("PortfolioController", function($scope, $http, $filter, flash) {
     // Run the search query to build pagination etc
     $scope.search()
   })
+
   
   // Search Controls
 
